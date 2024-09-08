@@ -1,2 +1,14 @@
-# go_rest_api
-Golang REST API with docker and POSTGRES
+# Golang Rest API with Docker and Postgres
+
+**Tools**
+
+- Golang
+- Docker
+- Postgres
+
+**Arch**
+
+- Controller
+  - Use Cases
+    - Repository
+      - Model
