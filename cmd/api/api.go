@@ -11,5 +11,8 @@ type APIServer struct {
 
 // function that return a pointer to an APIServer
 func NewAPIServer(addr string, db *sql.DB) *APIServer {
-
+	return &APIServer{
+		addr: addr,
+		db:   db,
+	}
 }
