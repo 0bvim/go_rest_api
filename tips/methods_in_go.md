@@ -22,7 +22,7 @@ func NewUser(NewName string, NewAge int) *User {
     }
 }
 
-func (u \*User) PrintInfo() {
+func (u *User) PrintInfo() {
     fmt.Println("Name:" + u.name)
     fmt.Println("Yo:", u.age)
 }
