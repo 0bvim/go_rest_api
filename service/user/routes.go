@@ -6,6 +6,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+// TODO: implemente handler struct
 type Handler struct {
 }
 

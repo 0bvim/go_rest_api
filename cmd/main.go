@@ -1,5 +1,6 @@
 package main
 
+// native import from github import normally are separated
 import (
 	"log"
 
