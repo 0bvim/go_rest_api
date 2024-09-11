@@ -10,10 +10,30 @@ import (
 type Handler struct {
 }
 
+// NewHandler create and return a Handler instance
 func NewHandler() *Handler {
 	return &Handler{}
 }
 
+// RegisterRoutes registers the routes for handling user login and registration.
+//
+// This method sets up two POST routes for the given router. It connects the "/login" route to the
+// handleLogin handler and the "/register" route to the handleRegister handler.
+//
+// Parameters:
+//
+//	router (*mux.Router): The router from the Gorilla Mux package to which the routes are registered.
+//
+// Example Usage:
+//
+//	router := mux.NewRouter()
+//	handler := &Handler{}
+//	handler.RegisterRoutes(router)
+//
+// The routes will be accessible at the following endpoints:
+//
+//	POST /login
+//	POST /register
 func (h *Handler) RegisterRoutes(router *mux.Router) {
 	router.HandleFunc("/login", h.handleLogin).Methods("POST")
 	router.HandleFunc("/register", h.handleRegister).Methods("POST")

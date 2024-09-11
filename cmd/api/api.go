@@ -44,7 +44,28 @@ func NewAPIServer(addr string, db *sql.DB) *APIServer {
 	}
 }
 
-// TODO: documentation
+// Run starts the HTTP server for the APIServer instance. (like a method)
+//
+// This method initializes a new Gorilla Mux router, sets up an API version 1
+// subrouter with route handlers, and starts the server to listen on the
+// specified address.
+//
+// The router handles API requests by delegating them to registered handlers.
+// In this example, the `userHandler` is responsible for managing user-related
+// routes under the `/api/v1` prefix.
+//
+// Log output will indicate the server's listening address.
+//
+// Returns:
+// - `error`: Any error that occurs while starting or running the HTTP server.
+//
+// Example:
+//
+//	apiServer := &APIServer{addr: ":8080"}
+//	err := apiServer.Run()
+//	if err != nil {
+//		log.Fatal(err)
+//	}
 func (s *APIServer) Run() error {
 	router := mux.NewRouter()
 	subrouter := router.PathPrefix("/api/v1").Subrouter()
