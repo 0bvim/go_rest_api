@@ -14,6 +14,9 @@ type Config struct {
 	DBName     string
 }
 
+// TODO: search why this is a singleton in golang, since we will not use it every time
+var Envs = initConfig()
+
 func initConfig() Config {
 	return Config{
 		PublicHost: getEnv("PUBLIC_HOST", "http://localhost"),
