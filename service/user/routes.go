@@ -3,6 +3,8 @@ package user
 import (
 	"net/http"
 
+	"github.com/go_rest_api/types"
+	"github.com/go_rest_api/utils"
 	"github.com/gorilla/mux"
 )
 
@@ -44,5 +46,11 @@ func (h *Handler) handleLogin(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *Handler) handleRegister(w http.ResponseWriter, r *http.Request) {
-
+	// get JSON payload
+	var payload types.RegisterUserPayload
+	if err := utils.ParseJSON(r, payload); err != nil {
+		utils.WriteError(w, http.StatusBadRequest, err)
+	}
+	// check if the user exists
+	// if it doesnt we create the new user
 }
