@@ -2,6 +2,7 @@ package main
 
 // native import from github import normally are separated
 import (
+	"database/sql"
 	"log"
 
 	"github.com/go-sql-driver/mysql"
@@ -26,8 +27,18 @@ func main() {
 		log.Fatal(err)
 	}
 
+	initStorage(db)
+
 	server := api.NewAPIServer(":8080", nil)
 	if err := server.Run(); err != nil {
 		log.Fatal(err)
 	}
+}
+
+func initStorage(db *sql.DB) {
+	err := db.Ping()
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println("DB: Successfully connected")
 }

@@ -14,11 +14,3 @@ func NewMySQLStorage(cfg mysql.Config) (*sql.DB, error) {
 	}
 	return db, nil
 }
-
-func initStorage(db *sql.DB) {
-	err := db.Ping()
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Println("DB: Successfully connected")
-}
