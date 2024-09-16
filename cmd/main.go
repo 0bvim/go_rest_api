@@ -35,6 +35,8 @@ func main() {
 	}
 }
 
+// this function basically starts the db connection
+// checking if it's "all right" with ping function
 func initStorage(db *sql.DB) {
 	err := db.Ping()
 	if err != nil {
