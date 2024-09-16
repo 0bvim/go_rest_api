@@ -8,13 +8,13 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// TODO: implemente handler struct
 type Handler struct {
+	store types.UserStore
 }
 
 // NewHandler create and return a Handler instance
-func NewHandler() *Handler {
-	return &Handler{}
+func NewHandler(store types.UserStore) *Handler {
+	return &Handler{store: store}
 }
 
 // RegisterRoutes registers the routes for handling user login and registration.
