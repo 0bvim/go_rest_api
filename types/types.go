@@ -2,6 +2,13 @@ package types
 
 import "time"
 
+// interface is easy to work with tests and mock things in go
+type UserStore interface {
+	GetUserByEmail(email string) (*User, error)
+	GetUserByID(id int) (*User, error)
+	CreateUser(User) error
+}
+
 type User struct {
 	FirstName string    `json:"FirstName"`
 	LastName  string    `json:"LastName"`
